@@ -1,7 +1,7 @@
 # Adonark
   Là một trò chơi RPG do [Harding Adonis](https://www.facebook.com/adonis.harding) phát triển.
 
-### Cốt truyên: [Link](google.com)
+### Cốt truyên: [Link](https://github.com/hardingadonis/Adonark/blob/master/Design%20Game/C%E1%BB%91t%20Truy%E1%BB%87n.txt)
 
 
 ### Các Thư Viện được sử dụng:
