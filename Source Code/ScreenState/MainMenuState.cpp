@@ -13,7 +13,12 @@ namespace Adn
 
     void MainMenuState::init()
     {
+        this->m_data->m_assets.loadFileTexture(L"Tiêu Đề Game", Path_Texture_Graphics + "TitleGame.png");
 
+
+        this->m_title_game.setTexture(this->m_data->m_assets.getTexture(L"Tiêu Đề Game"));
+        this->m_title_game.setOrigin(250.f, 70.f);
+        this->m_title_game.setPosition(Screen_Width / 2, Screen_Height / 2 - 180);
     }
 
     void MainMenuState::update()
@@ -24,6 +29,8 @@ namespace Adn
     void MainMenuState::draw()
     {
         this->m_data->m_window.clear();
+
+        this->m_data->m_window.draw(this->m_title_game);
 
         this->m_data->m_window.display();
     }

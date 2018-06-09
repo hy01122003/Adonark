@@ -7,9 +7,11 @@
 
 #include <Adonis/ScreenState.hpp>
 #include <SFML/Graphics.hpp>
+#include <TGUI/TGUI.hpp>
 #include <iostream>
 #include "GameDataRef.hpp"
 #include "../PathData.hpp"
+#include "../Particles/ParticleSystem.hpp"
 
 namespace Adn
 {
@@ -17,6 +19,9 @@ namespace Adn
     {
     private:
         GameDataRef            m_data;
+
+    private:
+        sf::Sprite             m_title_game;
 
     public:
         MainMenuState(GameDataRef data);
