@@ -9,13 +9,17 @@ namespace Adn
 {
     Application::Application() :
         m_data(std::make_shared<GameData>()),
-        m_time_a_frame(sf::seconds(1.f / 100.f)),
+        m_time_a_frame(sf::seconds(1.f / 60.f)),
         m_all_frame(0)
     {
+        this->m_mouse.loadFromPixels(s_icon_mouse.pixel_data, sf::Vector2u(s_icon_mouse.width, s_icon_mouse.height), sf::Vector2u(0, 0));
+
         this->m_data->m_window.create(sf::VideoMode(Screen_Width, Screen_Height), L"Adonark - Thế Giới Của Ma Thuật", sf::Style::Close);
         this->m_data->m_window.setFramerateLimit(Screen_Max_Frame);
 
         this->m_data->m_window.setIcon(icon.width, icon.width, icon.pixel_data);
+        this->m_data->m_window.setMouseCursor(this->m_mouse);
+        //this->m_data->m_window.setMouseCursorGrabbed(true);
 
         this->m_data->m_state.addState(Ado::BaseStateRef(new SplashState(this->m_data)));
     }

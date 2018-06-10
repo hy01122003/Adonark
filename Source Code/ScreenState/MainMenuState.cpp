@@ -7,7 +7,8 @@
 namespace Adn
 {
     MainMenuState::MainMenuState(GameDataRef data) :
-        m_data(data)
+        m_data(data),
+        m_gui(m_data->m_window)
     {
     }
 

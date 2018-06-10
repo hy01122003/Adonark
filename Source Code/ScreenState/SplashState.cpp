@@ -21,7 +21,7 @@ namespace Adn
 
     void SplashState::update()
     {
-        if (this->m_timer.getElapsedTime().asSeconds() > 2.f)
+        if (this->m_timer.getElapsedTime().asSeconds() > 1.2f)
         {
             this->m_timer.restart();
             this->m_data->m_state.addState(Ado::BaseStateRef(new MainMenuState(this->m_data)));

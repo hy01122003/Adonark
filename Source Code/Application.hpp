@@ -18,12 +18,17 @@ namespace Adn
     private:
         GameDataRef        m_data;
 
+        sf::Cursor         m_mouse;
+
         sf::Time           m_time_a_frame;
 
         sf::Clock          m_timer;
         int                m_all_frame;
     public:
         Application();
+
+        Application& operator = (Application& app) = delete;
+        Application(Application& app) = delete;
 
         void run();
 

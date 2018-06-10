@@ -23,6 +23,8 @@ namespace Adn
     private:
         sf::Sprite             m_title_game;
 
+        tgui::Gui              m_gui;
+
     public:
         MainMenuState(GameDataRef data);
 
