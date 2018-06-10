@@ -1,5 +1,6 @@
 # Adonark
-  Là một trò chơi RPG do [Harding Adonis](https://www.facebook.com/adonis.harding) phát triển.
+  - Là một trò chơi RPG do [Harding Adonis](https://www.facebook.com/adonis.harding) phát triển.
+  - Chỉnh sửa đồ họa: [Hoàng Đức Phú](https://www.facebook.com/miner.phukibo.3).
 
 ### Cốt truyên: [Link](https://github.com/hardingadonis/Adonark/blob/master/Design%20Game/C%E1%BB%91t%20Truy%E1%BB%87n.txt)
 
