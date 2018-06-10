@@ -25,6 +25,11 @@ namespace Adn
 
         tgui::Gui              m_gui;
 
+        tgui::Button::Ptr      m_button_play;                    //   Vào trò chơi
+        tgui::Button::Ptr      m_button_setting;                 //   Vào cài đặt
+        tgui::Button::Ptr      m_button_information;             //   Vào thông tin trò chơi
+        tgui::Button::Ptr      m_button_exit;                    //   Thoát game
+
     public:
         MainMenuState(GameDataRef data);
 
