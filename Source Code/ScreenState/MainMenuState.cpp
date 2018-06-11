@@ -3,7 +3,6 @@
 //   Ngày tạo: 07/06/2018
 
 #include "MainMenuState.hpp"
-#include <Windows.h>
 
 namespace Adn
 {
@@ -20,7 +19,7 @@ namespace Adn
     void MainMenuState::init()
     {
         this->m_data->m_assets.loadFileTexture(L"Tiêu Đề Game", Path_Texture_Graphics + "TitleGame.png");
-
+        this->m_data->m_assets.loadFileFont(L"Font Pixel Việt Hóa", Path_Font + "Font_Pixel.ttf");
 
         this->m_title_game.setTexture(this->m_data->m_assets.getTexture(L"Tiêu Đề Game"));
         this->m_title_game.setOrigin(250.f, 70.f);
@@ -36,15 +35,50 @@ namespace Adn
         this->m_button_information->setPosition(300, 320);
         this->m_button_exit->setPosition(300, 390);
 
+        //   Thêm hiệu ứng xuất hiện
+        this->m_button_play->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(800));
+        this->m_button_setting->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(800));
+        this->m_button_information->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(800));
+        this->m_button_exit->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(800));
+
+
+        //   Chỉnh Font cho GUI
+        //this->m_gui.setFont(this->m_data->m_assets.getFont(L"Font Pixel Việt Hóa"));
+
         //   GUI thêm các thành phần
         this->m_gui.add(this->m_button_play);
         this->m_gui.add(this->m_button_setting);
         this->m_gui.add(this->m_button_information);
         this->m_gui.add(this->m_button_exit);
     }
+
     void MainMenuState::update()
     {
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && this->m_button_play->isFocused())
+        {
+            std::cout << "Vao Game\n";
+        }
+
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && this->m_button_setting->isFocused())
+        {
+            this->m_button_setting->setFocused(false);
+
+            this->m_data->m_state.addState(Ado::BaseStateRef(new SettingState(this->m_data)), false);
+        }
+
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && this->m_button_information->isFocused())
+        {
+            this->m_button_information->setFocused(false);
+
+            this->m_data->m_state.addState(Ado::BaseStateRef(new InforAboutGameState(this->m_data)), false);
+        }
+
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && this->m_button_exit->isFocused())
+        {
+            this->m_data->m_window.close();
+        }
     }
+
 
     void MainMenuState::draw()
     {
@@ -66,5 +100,7 @@ namespace Adn
             if (event.type == sf::Event::EventType::Closed)
                 this->m_data->m_window.close();
         }
+
+        this->m_gui.handleEvent(event);
     }
 }

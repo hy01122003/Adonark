@@ -10,4 +10,5 @@ int main(int argc, char* argv[])
     application.run();
 
     return EXIT_SUCCESS;
+    
 }
