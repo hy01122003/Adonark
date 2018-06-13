@@ -7,7 +7,6 @@
 
 #include <Adonis/ScreenState.hpp>
 #include <SFML/Graphics.hpp>
-#include <TGUI/TGUI.hpp>
 #include <iostream>
 #include "GameDataRef.hpp"
 #include "../PathData.hpp"
@@ -21,10 +20,6 @@ namespace Adn
 
     private:
         sf::Text                  m_title;
-
-        tgui::Gui                 m_gui;
-
-        tgui::Button::Ptr         m_button_back;
 
     public:
         SettingState(GameDataRef data);

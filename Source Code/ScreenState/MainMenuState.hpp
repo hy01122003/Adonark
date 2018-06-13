@@ -7,7 +7,6 @@
 
 #include <Adonis/ScreenState.hpp>
 #include <SFML/Graphics.hpp>
-#include <TGUI/TGUI.hpp>
 #include <iostream>
 #include "GameDataRef.hpp"
 #include "SettingState.hpp"
@@ -23,13 +22,6 @@ namespace Adn
 
     private:
         sf::Sprite             m_title_game;
-
-        tgui::Gui              m_gui;
-
-        tgui::Button::Ptr      m_button_play;                    //   Vào trò chơi
-        tgui::Button::Ptr      m_button_setting;                 //   Vào cài đặt
-        tgui::Button::Ptr      m_button_information;             //   Vào thông tin trò chơi
-        tgui::Button::Ptr      m_button_exit;                    //   Thoát game
 
     public:
         MainMenuState(GameDataRef data);
