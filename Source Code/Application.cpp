@@ -17,7 +17,7 @@ namespace Adn
         this->m_data->m_window.create(sf::VideoMode(Screen_Width, Screen_Height), L"Adonark - Thế Giới Của Ma Thuật", sf::Style::Close);
         this->m_data->m_window.setFramerateLimit(Screen_Max_Frame);
 
-        this->m_data->m_window.setIcon(icon.width, icon.width, icon.pixel_data);
+        this->m_data->m_window.setIcon(s_icon_application.width, s_icon_application.width, s_icon_application.pixel_data);
         this->m_data->m_window.setMouseCursor(this->m_mouse);
         //this->m_data->m_window.setMouseCursorGrabbed(true);
 
