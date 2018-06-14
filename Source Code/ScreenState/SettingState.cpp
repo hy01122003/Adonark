@@ -7,19 +7,21 @@
 namespace Adn
 {
     SettingState::SettingState(GameDataRef data) :
-        m_data(data)
+        m_data(data),
+        m_title(L"Cài Đặt", this->m_data->m_assets.getFont(L"Font Goudytex"), 70)
     {
     }
 
     void SettingState::init()
     {
         this->m_title.setOrigin(this->m_title.getGlobalBounds().width / 2, this->m_title.getGlobalBounds().height / 2);
-        this->m_title.setPosition(Screen_Width / 2, Screen_Height / 2 - 180);
+        this->m_title.setFillColor(sf::Color::Red);
+        this->m_title.setPosition(Screen_Width / 2, Screen_Height / 2 - 210);
     }
 
     void SettingState::update()
     {
-
+        
     }
 
     void SettingState::draw()

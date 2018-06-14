@@ -56,6 +56,7 @@ namespace Adn
         this->m_data->m_assets.loadFileTexture(L"Tiêu Đề Game", Path_Texture_Graphics + "TitleGame.png");
 
         this->m_data->m_assets.loadFileFont(L"Font Goudytex", Path_Font + "Goudytex.ttf");
+        this->m_data->m_assets.loadFileFont(L"Font HLT GulyesaScript", Path_Font + "HLT_GulyesaScript.ttf");
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -77,12 +78,38 @@ namespace Adn
 
     void MainMenuState::update()
     {
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && this->m_button_exit->isFocused())
-        {
-            this->m_button_exit->setFocused(false);
 
-            this->m_data->m_window.close();
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+        {
+            if (this->m_button_play->isFocused())
+            {
+                this->m_button_play->setFocused(false);
+
+                std::cout << "Vao Game";
+            }
+
+            if (this->m_button_setting->isFocused())
+            {
+                this->m_button_setting->setFocused(false);
+
+                this->m_data->m_state.addState(Ado::BaseStateRef(new SettingState(this->m_data)), false);
+            }
+
+            if (this->m_button_infor->isFocused())
+            {
+                this->m_button_infor->setFocused(false);
+
+                this->m_data->m_state.addState(Ado::BaseStateRef(new InforAboutGameState(this->m_data)), false);
+            }
+
+            if (this->m_button_exit->isFocused())
+            {
+                this->m_button_exit->setFocused(false);
+
+                this->m_data->m_window.close();
+            }
         }
+
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
