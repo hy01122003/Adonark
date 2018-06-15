@@ -25,6 +25,7 @@ namespace Adn
         this->m_button_back->setTextSize(20);
         this->m_button_back->setSize(100, 30);
         this->m_button_back->setPosition(50, 430);
+        this->m_button_back->connect("pressed", [&]() {this->m_data->m_state.removeState(); });
         this->m_button_back->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(800));
 
         this->m_gui.setFont(this->m_data->m_assets.getFont(L"Font Goudytex"));
@@ -85,15 +86,6 @@ namespace Adn
             this->m_content_designer.setFillColor(sf::Color::Yellow);
         else this->m_content_designer.setFillColor(sf::Color::White);
         
-        
-
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && this->m_button_back->isFocused())
-        {
-            this->m_button_back->setFocused(false);
-
-            this->m_data->m_state.removeState();
-        }
-
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -127,9 +119,9 @@ namespace Adn
         {
             if (event.type == sf::Event::EventType::Closed)
                 this->m_data->m_window.close();
-        }
 
-        this->m_gui.handleEvent(event);
+            this->m_gui.handleEvent(event);
+        }
 
     }
 }

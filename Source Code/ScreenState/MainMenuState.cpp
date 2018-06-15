@@ -28,16 +28,19 @@ namespace Adn
         this->m_button_setting->setSize(200, 30);
         this->m_button_setting->setPosition(300, 250);
         this->m_button_setting->setTextSize(20);
+        this->m_button_setting->connect("pressed", [&]() {this->m_data->m_state.addState(Ado::BaseStateRef(new SettingState(this->m_data)), false); });
         this->m_button_setting->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(800));
 
         this->m_button_infor->setSize(200, 30);
         this->m_button_infor->setPosition(300, 320);
         this->m_button_infor->setTextSize(20);
+        this->m_button_infor->connect("pressed", [&]() {this->m_data->m_state.addState(Ado::BaseStateRef(new InforAboutGameState(this->m_data)), false); });
         this->m_button_infor->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(800));
 
         this->m_button_exit->setSize(200, 30);
         this->m_button_exit->setPosition(300, 390);
         this->m_button_exit->setTextSize(20);
+        this->m_button_exit->connect("pressed", [&]() {this->m_data->m_window.close(); });
         this->m_button_exit->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(800));
 
 
@@ -79,37 +82,6 @@ namespace Adn
     void MainMenuState::update()
     {
 
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-        {
-            if (this->m_button_play->isFocused())
-            {
-                this->m_button_play->setFocused(false);
-
-                std::cout << "Vao Game";
-            }
-
-            if (this->m_button_setting->isFocused())
-            {
-                this->m_button_setting->setFocused(false);
-
-                this->m_data->m_state.addState(Ado::BaseStateRef(new SettingState(this->m_data)), false);
-            }
-
-            if (this->m_button_infor->isFocused())
-            {
-                this->m_button_infor->setFocused(false);
-
-                this->m_data->m_state.addState(Ado::BaseStateRef(new InforAboutGameState(this->m_data)), false);
-            }
-
-            if (this->m_button_exit->isFocused())
-            {
-                this->m_button_exit->setFocused(false);
-
-                this->m_data->m_window.close();
-            }
-        }
-
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -135,8 +107,8 @@ namespace Adn
         {
             if (event.type == sf::Event::EventType::Closed)
                 this->m_data->m_window.close();
-        }
 
-        this->m_gui.handleEvent(event);
+            this->m_gui.handleEvent(event);
+        }
     }
 }
