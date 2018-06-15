@@ -9,6 +9,7 @@
 #include <Adonis/Utility.hpp>
 #include <SFML/Graphics.hpp>
 #include <memory>
+#include "../Engine/SoundsManager.hpp"
 
 namespace Adn
 {
@@ -17,6 +18,7 @@ namespace Adn
         sf::RenderWindow            m_window;
         Ado::StateManager           m_state;
         Ado::AssetsManager          m_assets;
+        SoundsManager               m_sounds;
     };
 
     typedef std::shared_ptr<GameData> GameDataRef;

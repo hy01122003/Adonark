@@ -10,6 +10,7 @@
 #include <TGUI/TGUI.hpp>
 #include <iostream>
 #include "GameDataRef.hpp"
+#include "GamePlayState.hpp"
 #include "SettingState.hpp"
 #include "InforAboutGameState.hpp"
 #include "../PathData.hpp"

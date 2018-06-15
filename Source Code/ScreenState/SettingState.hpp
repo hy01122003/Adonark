@@ -21,11 +21,18 @@ namespace Adn
 
     private:
         sf::Text                  m_title;
+        sf::Text                  m_content_sounds;
+        sf::Text                  m_content_music;
+        sf::Text                  m_content_showFPS;
+
 
         tgui::Gui                 m_gui;
 
         tgui::Button::Ptr         m_button_back;
 
+        tgui::Slider::Ptr         m_slider_sounds;
+
+        tgui::Slider::Ptr         m_slider_music;
     private:
         void setupButton();
 

@@ -23,6 +23,7 @@ namespace Adn
         this->m_button_play->setSize(200, 30);
         this->m_button_play->setPosition(300, 180);
         this->m_button_play->setTextSize(20);
+        this->m_button_play->connect("pressed", [&]() {this->m_data->m_state.addState(Ado::BaseStateRef(new GamePlayState(this->m_data)), false); });
         this->m_button_play->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(800));
 
         this->m_button_setting->setSize(200, 30);
