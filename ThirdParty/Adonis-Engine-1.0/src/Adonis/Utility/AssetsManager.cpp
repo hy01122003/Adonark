@@ -5,7 +5,7 @@
 
 namespace Ado
 {
-    void AssetsManager::loadFileTexture(std::wstring ID, std::string PathFile)
+    void AssetsManager::loadFileTexture(std::string ID, std::string PathFile)
     {
         sf::Texture texture;
 
@@ -15,7 +15,9 @@ namespace Ado
         this->m_texture[ID] = texture;
     }
 
-    void AssetsManager::loadFileFont(std::wstring ID, std::string PathFile)
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    void AssetsManager::loadFileFont(std::string ID, std::string PathFile)
     {
         sf::Font font;
 
@@ -25,7 +27,9 @@ namespace Ado
         this->m_font[ID] = font;
     }
 
-    void AssetsManager::loadFileImage(std::wstring ID, std::string PathFile)
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    void AssetsManager::loadFileImage(std::string ID, std::string PathFile)
     {
         sf::Image image;
 
@@ -35,18 +39,66 @@ namespace Ado
         this->m_image[ID] = image;
     }
 
-    sf::Texture& AssetsManager::getTexture(std::wstring ID)
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    sf::Texture& AssetsManager::getTexture(std::string ID)
     {
         return this->m_texture.at(ID);
     }
 
-    sf::Font& AssetsManager::getFont(std::wstring ID)
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    sf::Font& AssetsManager::getFont(std::string ID)
     {
         return this->m_font.at(ID);
     }
 
-    sf::Image& AssetsManager::getImage(std::wstring ID)
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    sf::Image& AssetsManager::getImage(std::string ID)
     {
         return this->m_image.at(ID);
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    void AssetsManager::clearAllTexture()
+    {
+        this->m_texture.clear();
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    void AssetsManager::clearAllFont()
+    {
+        this->m_font.clear();
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    void AssetsManager::clearAllImage()
+    {
+        this->m_image.clear();
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////s
+
+    void AssetsManager::clearTexture(std::string ID)
+    {
+        this->m_texture.erase(this->m_texture.find(ID));
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    void AssetsManager::clearFont(std::string ID)
+    {
+        this->m_font.erase(this->m_font.find(ID));
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    void AssetsManager::clearImage(std::string ID)
+    {
+        this->m_image.erase(this->m_image.find(ID));
     }
 }

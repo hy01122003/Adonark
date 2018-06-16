@@ -14,22 +14,30 @@ namespace Ado
     class AssetsManager
     {
     protected:
-        std::map<std::wstring, sf::Texture>         m_texture;
-        std::map<std::wstring, sf::Font>            m_font;
-        std::map<std::wstring, sf::Image>           m_image;
+        std::map<std::string, sf::Texture>         m_texture;
+        std::map<std::string, sf::Font>            m_font;
+        std::map<std::string, sf::Image>           m_image;
 
     public:
 
         //   Load dữ liệu
-        void loadFileTexture(std::wstring ID, std::string PathFile);
-        void loadFileFont(std::wstring ID, std::string PathFile);
-        void loadFileImage(std::wstring ID, std::string PathFile);
+        void loadFileTexture(std::string ID, std::string PathFile);
+        void loadFileFont(std::string ID, std::string PathFile);
+        void loadFileImage(std::string ID, std::string PathFile);
 
         //   Lấy dữ liệu
-        sf::Texture& getTexture(std::wstring ID);
-        sf::Font& getFont(std::wstring ID);
-        sf::Image& getImage(std::wstring ID);
+        sf::Texture& getTexture(std::string ID);
+        sf::Font& getFont(std::string ID);
+        sf::Image& getImage(std::string ID);
 
+
+        void clearAllTexture();
+        void clearAllFont();
+        void clearAllImage();
+
+        void clearTexture(std::string ID);
+        void clearFont(std::string ID);
+        void clearImage(std::string ID);
     };
 }
 

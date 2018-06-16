@@ -24,6 +24,8 @@ namespace Ado
         return false;
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     bool InputManager::checkSpriteContainMouse(const sf::RenderWindow& window, const sf::Sprite& sprite)
     {
         int x = window.getView().getCenter().x - window.getSize().x / 2;
@@ -39,6 +41,8 @@ namespace Ado
 
         return false;
     }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     bool InputManager::checkTextClicked(const sf::RenderWindow& window, const sf::Text& text, sf::Mouse::Button button /* = sf::Mouse::Button::Left */)
     {
@@ -58,6 +62,8 @@ namespace Ado
 
         return false;
     }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     bool InputManager::checkTextContainMouse(const sf::RenderWindow& window, const sf::Text& text)
     {
