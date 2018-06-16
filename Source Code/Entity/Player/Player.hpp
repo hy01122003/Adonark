@@ -21,6 +21,18 @@ namespace Adn
         unsigned int          m_damage;
 
     public:
+        enum Status
+        {
+            Up,
+            Down,
+            Left,
+            Right
+        };
+
+    private:
+        Status                m_status;
+
+    public:
         Player();
         Player(sf::Texture& texture);
 
@@ -31,6 +43,10 @@ namespace Adn
         unsigned int getHP() const;
 
         unsigned int getMP() const;
+
+        Status getStatus() const;
+
+        void setState(Status status);
 
     };
 }

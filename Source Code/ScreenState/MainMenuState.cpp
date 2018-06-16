@@ -50,17 +50,17 @@ namespace Adn
         this->m_gui.add(this->m_button_infor);
         this->m_gui.add(this->m_button_exit);
 
-        this->m_gui.setFont(this->m_data->m_assets.getFont(L"Font Goudytex"));
+        this->m_gui.setFont(this->m_data->m_assets.getFont("Font Goudytex"));
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void MainMenuState::loadData()
     {
-        this->m_data->m_assets.loadFileTexture(L"Tiêu Đề Game", Path_Texture_Graphics + "TitleGame.png");
+        this->m_data->m_assets.loadFileTexture("TitleGame", Path_Texture_Graphics + "TitleGame.png");
 
-        this->m_data->m_assets.loadFileFont(L"Font Goudytex", Path_Font + "Goudytex.ttf");
-        this->m_data->m_assets.loadFileFont(L"Font HLT GulyesaScript", Path_Font + "HLT_GulyesaScript.ttf");
+        this->m_data->m_assets.loadFileFont("Font Goudytex", Path_Font + "Goudytex.ttf");
+        this->m_data->m_assets.loadFileFont("Font HLT GulyesaScript", Path_Font + "HLT_GulyesaScript.ttf");
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -70,7 +70,7 @@ namespace Adn
         this->loadData();
 
 
-        this->m_title_game.setTexture(this->m_data->m_assets.getTexture(L"Tiêu Đề Game"));
+        this->m_title_game.setTexture(this->m_data->m_assets.getTexture("TitleGame"));
         this->m_title_game.setOrigin(250.f, 70.f);
         this->m_title_game.setPosition(Screen_Width / 2, Screen_Height / 2 - 160);
 

@@ -10,11 +10,11 @@ namespace Adn
         m_data(data),
         m_gui(this->m_data->m_window),
         m_button_back(tgui::Button::create(L"Trở về")),
-        m_title(L"Thông Tin Game", this->m_data->m_assets.getFont(L"Font Goudytex"), 70),
-        m_content_programer(L"Programer: Harding Adonis", this->m_data->m_assets.getFont(L"Font HLT GulyesaScript")),
-        m_content_project_manager(L"Project Manager: Harding Adonis", this->m_data->m_assets.getFont(L"Font HLT GulyesaScript")),
-        m_content_tester(L"Tester: Miner Phukibo", this->m_data->m_assets.getFont(L"Font HLT GulyesaScript")),
-        m_content_designer(L"Designer: Miner Phukibo", this->m_data->m_assets.getFont(L"Font HLT GulyesaScript"))
+        m_title(L"Thông Tin Game", this->m_data->m_assets.getFont("Font Goudytex"), 70),
+        m_content_programer(L"Programer: Harding Adonis", this->m_data->m_assets.getFont("Font HLT GulyesaScript")),
+        m_content_project_manager(L"Project Manager: Harding Adonis", this->m_data->m_assets.getFont("Font HLT GulyesaScript")),
+        m_content_tester(L"Tester: Miner Phukibo", this->m_data->m_assets.getFont("Font HLT GulyesaScript")),
+        m_content_designer(L"Designer: Miner Phukibo", this->m_data->m_assets.getFont("Font HLT GulyesaScript"))
     {
     }
 
@@ -28,7 +28,7 @@ namespace Adn
         this->m_button_back->connect("pressed", [&]() {this->m_data->m_state.removeState(); });
         this->m_button_back->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(800));
 
-        this->m_gui.setFont(this->m_data->m_assets.getFont(L"Font Goudytex"));
+        this->m_gui.setFont(this->m_data->m_assets.getFont("Font Goudytex"));
         this->m_gui.add(this->m_button_back);
     }
 

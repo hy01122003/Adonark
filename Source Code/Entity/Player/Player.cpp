@@ -23,9 +23,9 @@ namespace Adn
     {
         this->m_sprite.setTexture(texture);
 
-        this->m_sprite.setTextureRect({ 0, 0, 32, 48 });
+        this->m_animation.create(0.2f, { 0, 0, 32, 48 }, 4);
 
-        this->m_animation.create(0.2, { 0, 0, 32, 48 }, 4);
+        this->m_status = Status::Down;
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,5 +47,38 @@ namespace Adn
     unsigned int Player::getMP() const
     {
         return this->m_MP;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Player::Status Player::getStatus() const
+    {
+        return this->m_status;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    void Player::setState(Player::Status status)
+    {
+        this->m_status = status;
+
+        switch (this->m_status)
+        {
+        case Status::Down:
+            this->m_animation.create(0.2f, { 0, 0, 32, 48 }, 4);
+            break;
+
+        case Status::Left:
+            this->m_animation.create(0.2f, { 0, 48, 32, 48 }, 4);
+            break;
+
+        case Status::Right:
+            this->m_animation.create(0.2f, { 0, 96, 32, 48 }, 4);
+            break;
+
+        case Status::Up:
+            this->m_animation.create(0.2f, { 0, 144, 32, 48 }, 4);
+            break;
+        }
     }
 }

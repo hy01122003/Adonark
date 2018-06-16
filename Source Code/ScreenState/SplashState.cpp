@@ -16,9 +16,9 @@ namespace Adn
 
     void SplashState::init()
     {
-        this->m_data->m_assets.loadFileTexture(L"SplashBackground", Path_Texture_Graphics + "SplashBackground.png");
+        this->m_data->m_assets.loadFileTexture("SplashBackground", Path_Texture_Graphics + "SplashBackground.png");
 
-        this->m_sprite.setTexture(this->m_data->m_assets.getTexture(L"SplashBackground"));
+        this->m_sprite.setTexture(this->m_data->m_assets.getTexture("SplashBackground"));
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

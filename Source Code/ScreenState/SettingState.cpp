@@ -8,10 +8,10 @@ namespace Adn
 {
     SettingState::SettingState(GameDataRef data) :
         m_data(data),
-        m_title(L"Cài Đặt", this->m_data->m_assets.getFont(L"Font Goudytex"), 70),
-        m_content_sounds(L"Âm thanh: " + std::to_wstring(this->m_data->m_sounds.getVolumeSounds()) + L"%", this->m_data->m_assets.getFont(L"Font HLT GulyesaScript"), 25),
-        m_content_music(L"Nhạc nền: " + std::to_wstring(this->m_data->m_sounds.getVolumeMusic()) + L"%", this->m_data->m_assets.getFont(L"Font HLT GulyesaScript"), 25),
-        m_content_FPS(L"Giới hạn FPS: " + std::to_wstring(Screen_Max_Frame), this->m_data->m_assets.getFont(L"Font HLT GulyesaScript"), 25),
+        m_title(L"Cài Đặt", this->m_data->m_assets.getFont("Font Goudytex"), 70),
+        m_content_sounds(L"Âm thanh: " + std::to_wstring(this->m_data->m_sounds.getVolumeSounds()) + L"%", this->m_data->m_assets.getFont("Font HLT GulyesaScript"), 25),
+        m_content_music(L"Nhạc nền: " + std::to_wstring(this->m_data->m_sounds.getVolumeMusic()) + L"%", this->m_data->m_assets.getFont("Font HLT GulyesaScript"), 25),
+        m_content_FPS(L"Giới hạn FPS: " + std::to_wstring(Screen_Max_Frame), this->m_data->m_assets.getFont("Font HLT GulyesaScript"), 25),
         m_gui(this->m_data->m_window),
         m_button_back(tgui::Button::create(L"Trở về")),
         m_slider_sounds(tgui::Slider::create(0.f, 100.f)),
@@ -60,7 +60,7 @@ namespace Adn
         this->m_slider_FPS->setValue(Screen_Max_Frame);
 
 
-        this->m_gui.setFont(this->m_data->m_assets.getFont(L"Font Goudytex"));
+        this->m_gui.setFont(this->m_data->m_assets.getFont("Font Goudytex"));
 
         this->m_gui.add(this->m_button_back);
         this->m_gui.add(this->m_slider_sounds);
