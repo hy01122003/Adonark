@@ -7,9 +7,9 @@
 
 #include <string>
 
-#define Screen_Width      800
-#define Screen_Height     500
-#define Screen_Max_Frame  60
+#define Screen_Width                   800
+#define Screen_Height                  500
+static unsigned int Screen_Max_Frame   = 60;
 
 const std::string Path_Font              = "Assets/Fonts/";
 const std::string Path_Sound             = "Assets/Sounds/";

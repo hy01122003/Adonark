@@ -23,7 +23,7 @@ namespace Adn
         sf::Text                  m_title;
         sf::Text                  m_content_sounds;
         sf::Text                  m_content_music;
-        sf::Text                  m_content_showFPS;
+        sf::Text                  m_content_FPS;
 
 
         tgui::Gui                 m_gui;
@@ -33,6 +33,9 @@ namespace Adn
         tgui::Slider::Ptr         m_slider_sounds;
 
         tgui::Slider::Ptr         m_slider_music;
+
+        tgui::Slider::Ptr         m_slider_FPS;
+
     private:
         void setupButton();
 

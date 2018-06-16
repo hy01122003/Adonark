@@ -11,11 +11,12 @@ namespace Adn
         m_title(L"Cài Đặt", this->m_data->m_assets.getFont(L"Font Goudytex"), 70),
         m_content_sounds(L"Âm thanh: " + std::to_wstring(this->m_data->m_sounds.getVolumeSounds()) + L"%", this->m_data->m_assets.getFont(L"Font HLT GulyesaScript"), 25),
         m_content_music(L"Nhạc nền: " + std::to_wstring(this->m_data->m_sounds.getVolumeMusic()) + L"%", this->m_data->m_assets.getFont(L"Font HLT GulyesaScript"), 25),
-        m_content_showFPS(L"Hiển thị FPS", this->m_data->m_assets.getFont(L"Font HLT GulyesaScript"), 25),
+        m_content_FPS(L"Giới hạn FPS: " + std::to_wstring(Screen_Max_Frame), this->m_data->m_assets.getFont(L"Font HLT GulyesaScript"), 25),
         m_gui(this->m_data->m_window),
         m_button_back(tgui::Button::create(L"Trở về")),
         m_slider_sounds(tgui::Slider::create(0.f, 100.f)),
-        m_slider_music(tgui::Slider::create(0.f, 100.f))
+        m_slider_music(tgui::Slider::create(0.f, 100.f)),
+        m_slider_FPS(tgui::Slider::create(10.f, 150.f))
     {
     }
 
@@ -26,11 +27,15 @@ namespace Adn
         this->m_button_back->setTextSize(20);
         this->m_button_back->setSize(100, 30);
         this->m_button_back->setPosition(50, 430);
-        this->m_button_back->connect("pressed", [&]() 
+        this->m_button_back->connect("pressed", [&]()
         {
             this->m_data->m_sounds.setVolume(this->m_slider_sounds->getValue(), this->m_slider_music->getValue());
 
             this->m_data->m_sounds.saveData();
+
+            Screen_Max_Frame = int(this->m_slider_FPS->getValue());
+
+            this->m_data->m_window.setFramerateLimit(Screen_Max_Frame);
 
             this->m_data->m_state.removeState(); 
         });
@@ -49,11 +54,18 @@ namespace Adn
         this->m_slider_music->setValue(this->m_data->m_sounds.getVolumeMusic());
 
 
+        this->m_slider_FPS->setSize(300, 15);
+        this->m_slider_FPS->setPosition(320, 310);
+        this->m_slider_FPS->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(500));
+        this->m_slider_FPS->setValue(Screen_Max_Frame);
+
+
         this->m_gui.setFont(this->m_data->m_assets.getFont(L"Font Goudytex"));
 
         this->m_gui.add(this->m_button_back);
         this->m_gui.add(this->m_slider_sounds);
         this->m_gui.add(this->m_slider_music);
+        this->m_gui.add(this->m_slider_FPS);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -73,8 +85,8 @@ namespace Adn
         this->m_content_music.setPosition(170, 230);
 
 
-        this->m_content_showFPS.setStyle(sf::Text::Style::Bold);
-        this->m_content_showFPS.setPosition(170, 300);
+        this->m_content_FPS.setStyle(sf::Text::Style::Bold);
+        this->m_content_FPS.setPosition(170, 300);
         
         this->setupButton();
     }
@@ -86,6 +98,8 @@ namespace Adn
         this->m_content_sounds.setString(L"Âm thanh: " + std::to_wstring(int(this->m_slider_sounds->getValue())) + L"%");
 
         this->m_content_music.setString(L"Nhạc nền: " + std::to_wstring(int(this->m_slider_music->getValue())) + L"%");
+
+        this->m_content_FPS.setString(L"Giới hạn FPS: " + std::to_wstring(int(this->m_slider_FPS->getValue())));
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -100,7 +114,7 @@ namespace Adn
 
         this->m_data->m_window.draw(this->m_content_music);
 
-        this->m_data->m_window.draw(this->m_content_showFPS);
+        this->m_data->m_window.draw(this->m_content_FPS);
 
         this->m_gui.draw();
 

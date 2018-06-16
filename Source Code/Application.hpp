@@ -20,10 +20,8 @@ namespace Adn
 
         sf::Cursor         m_mouse;
 
-        sf::Time           m_time_a_frame;
+        const sf::Time     m_time_a_frame;
 
-        sf::Clock          m_timer;
-        int                m_all_frame;
     public:
         Application();
 

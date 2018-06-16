@@ -13,7 +13,7 @@ namespace Adn
         m_title(L"Thông Tin Game", this->m_data->m_assets.getFont(L"Font Goudytex"), 70),
         m_content_programer(L"Programer: Harding Adonis", this->m_data->m_assets.getFont(L"Font HLT GulyesaScript")),
         m_content_project_manager(L"Project Manager: Harding Adonis", this->m_data->m_assets.getFont(L"Font HLT GulyesaScript")),
-        m_content_tester(L"Tester: Harding Adonis", this->m_data->m_assets.getFont(L"Font HLT GulyesaScript")),
+        m_content_tester(L"Tester: Miner Phukibo", this->m_data->m_assets.getFont(L"Font HLT GulyesaScript")),
         m_content_designer(L"Designer: Miner Phukibo", this->m_data->m_assets.getFont(L"Font HLT GulyesaScript"))
     {
     }

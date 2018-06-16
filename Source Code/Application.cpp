@@ -9,8 +9,7 @@ namespace Adn
 {
     Application::Application() :
         m_data(std::make_shared<GameData>()),
-        m_time_a_frame(sf::seconds(1.f / 60.f)),
-        m_all_frame(0)
+        m_time_a_frame(sf::seconds(1.f / 60.f))
     {
         this->m_mouse.loadFromPixels(s_icon_mouse.pixel_data, sf::Vector2u(s_icon_mouse.width, s_icon_mouse.height), sf::Vector2u(0, 0));
 
@@ -33,6 +32,7 @@ namespace Adn
 
         while (this->m_data->m_window.isOpen())
         {
+
             this->m_data->m_state.handleStateChange();
 
             this->m_data->m_state.getActiveState()->handleEvent();
@@ -48,16 +48,6 @@ namespace Adn
             }
 
             this->m_data->m_state.getActiveState()->draw();
-
-            this->m_all_frame++;
-            if (this->m_timer.getElapsedTime().asSeconds() > 1.f)
-            {
-                this->m_timer.restart();
-                system("cls");
-                system("color C");
-                std::cout << "Adonark:     FPS = " << this->m_all_frame << std::endl;
-                this->m_all_frame = 0;
-            }
         }
     }
 }
