@@ -17,14 +17,16 @@ namespace Adn
 
     void GamePlayState::init()
     {
+        this->m_data->m_assets.loadFileTexture(L"PlayerSprite", Path_Texture_Entity + "PlayerSprite.png");
 
+        p.create(this->m_data->m_assets.getTexture(L"PlayerSprite"));
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void GamePlayState::update()
     {
-
+        this->p.update();
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -32,6 +34,8 @@ namespace Adn
     void GamePlayState::draw()
     {
         this->m_data->m_window.clear();
+
+        this->p.draw(this->m_data->m_window);
 
         this->m_data->m_window.display();
     }

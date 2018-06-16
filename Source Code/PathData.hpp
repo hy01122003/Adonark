@@ -16,5 +16,6 @@ const std::string Path_Sound             = "Assets/Sounds/";
 const std::string Path_Texture_Graphics  = "Assets/Textures/Graphics/";
 const std::string Path_Texture_Map       = "Assets/Textures/Map/";
 const std::string Path_Texture_NPC       = "Assets/Textures/NPC/";
+const std::string Path_Texture_Entity    = "Assets/Textures/Entity/";
 
 #endif  //   _PathData_HPP_

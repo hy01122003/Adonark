@@ -11,6 +11,7 @@
 #include <SFML/Graphics.hpp>
 #include "GameDataRef.hpp"
 #include "../PathData.hpp"
+#include "../Entity/Player/Player.hpp"
 
 namespace Adn
 {
@@ -20,6 +21,7 @@ namespace Adn
         GameDataRef             m_data;
 
     private:
+        Player  p;
 
     public:
         GamePlayState(GameDataRef data);
