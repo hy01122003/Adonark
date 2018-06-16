@@ -10,8 +10,8 @@
 #include <Adonis/ScreenState.hpp>
 #include <SFML/Graphics.hpp>
 #include "GameDataRef.hpp"
+#include "../GamePlay/Include.hpp"
 #include "../PathData.hpp"
-#include "../Entity/Player/Player.hpp"
 
 namespace Adn
 {
@@ -21,7 +21,7 @@ namespace Adn
         GameDataRef             m_data;
 
     private:
-        Player  p;
+        GamePlay*               m_game_play;
 
     public:
         GamePlayState(GameDataRef data);

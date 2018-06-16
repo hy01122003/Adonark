@@ -19,11 +19,4 @@ namespace Adn
     {
         this->m_sprite.setPosition(x, y);
     }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    sf::Vector2f Entity::getPosition() const
-    {
-        return this->m_sprite.getPosition();
-    }
 }

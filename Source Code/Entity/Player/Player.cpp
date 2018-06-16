@@ -23,6 +23,8 @@ namespace Adn
     {
         this->m_sprite.setTexture(texture);
 
+        this->m_sprite.setOrigin(16.f, 24.f);
+
         this->m_animation.create(0.2f, { 0, 0, 32, 48 }, 4);
 
         this->m_status = Status::Down;

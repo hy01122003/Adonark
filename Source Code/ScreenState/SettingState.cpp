@@ -29,7 +29,7 @@ namespace Adn
         this->m_button_back->setPosition(50, 430);
         this->m_button_back->connect("pressed", [&]()
         {
-            this->m_data->m_sounds.setVolume(this->m_slider_sounds->getValue(), this->m_slider_music->getValue());
+            this->m_data->m_sounds.setVolume(int(this->m_slider_sounds->getValue()), int(this->m_slider_music->getValue()));
 
             this->m_data->m_sounds.saveData();
 
@@ -45,19 +45,19 @@ namespace Adn
         this->m_slider_sounds->setSize(300, 15);
         this->m_slider_sounds->setPosition(320, 170);
         this->m_slider_sounds->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(500));
-        this->m_slider_sounds->setValue(this->m_data->m_sounds.getVolumeSounds());
+        this->m_slider_sounds->setValue(float(this->m_data->m_sounds.getVolumeSounds()));
 
 
         this->m_slider_music->setSize(300, 15);
         this->m_slider_music->setPosition(320, 240);
         this->m_slider_music->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(500));
-        this->m_slider_music->setValue(this->m_data->m_sounds.getVolumeMusic());
+        this->m_slider_music->setValue(float(this->m_data->m_sounds.getVolumeMusic()));
 
 
         this->m_slider_FPS->setSize(300, 15);
         this->m_slider_FPS->setPosition(320, 310);
         this->m_slider_FPS->showWithEffect(tgui::ShowAnimationType::Fade, sf::milliseconds(500));
-        this->m_slider_FPS->setValue(Screen_Max_Frame);
+        this->m_slider_FPS->setValue(float(Screen_Max_Frame));
 
 
         this->m_gui.setFont(this->m_data->m_assets.getFont("Font Goudytex"));

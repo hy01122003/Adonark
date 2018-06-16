@@ -17,26 +17,15 @@ namespace Adn
 
     void GamePlayState::init()
     {
-        this->m_data->m_assets.loadFileTexture("PlayerSprite", Path_Texture_Entity + "PlayerSprite.png");
-
-        p.create(this->m_data->m_assets.getTexture("PlayerSprite"));
+        this->m_game_play = new CrovaniaVillage(&this->m_data->m_window, this->m_data->m_assets);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void GamePlayState::update()
     {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) && p.getStatus() != Player::Status::Left)
-            p.setState(Player::Status::Left);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) && p.getStatus() != Player::Status::Right)
-            p.setState(Player::Status::Right);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up) && p.getStatus() != Player::Status::Up)
-            p.setState(Player::Status::Up);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) && p.getStatus() != Player::Status::Down)
-            p.setState(Player::Status::Down);
+        this->m_game_play->update();
 
-
-        this->p.update();
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,7 +34,7 @@ namespace Adn
     {
         this->m_data->m_window.clear();
 
-        this->p.draw(this->m_data->m_window);
+        this->m_game_play->draw();
 
         this->m_data->m_window.display();
     }

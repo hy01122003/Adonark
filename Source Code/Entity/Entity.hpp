@@ -34,7 +34,10 @@ namespace Adn
 
         void setPosition(float x, float y);
 
-        sf::Vector2f getPosition() const;
+        sf::Vector2f getPosition() const
+        {
+            return this->m_sprite.getPosition();
+        };
 
     };
 }
