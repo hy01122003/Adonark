@@ -34,6 +34,9 @@ namespace Adn
 
     void Player::update()
     {
+        if (this->m_status == Status::None)
+            this->m_animation.setCurrentFrame(0);
+
         this->m_sprite.setTextureRect(this->m_animation.getIntRect());
     }
 

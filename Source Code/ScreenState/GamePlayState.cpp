@@ -9,7 +9,8 @@
 namespace Adn
 {
     GamePlayState::GamePlayState(GameDataRef data) :
-        m_data(data)
+        m_data(data),
+        m_data_game(std::make_shared<GamePlayData>())
     {
     }
 
@@ -17,14 +18,20 @@ namespace Adn
 
     void GamePlayState::init()
     {
+        this->m_data_game->m_assets = &this->m_data->m_assets;
+        this->m_data_game->m_sounds = &this->m_data->m_sounds;
+        this->m_data_game->m_target = &this->m_data->m_window;
 
+        this->m_data_game->m_game.addGame(GamePlayRef(new CrovaniaVillage(this->m_data_game)));
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void GamePlayState::update()
     {
+        this->m_data_game->m_game.handleGameChange();
 
+        this->m_data_game->m_game.getActiveGame()->update();
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -33,7 +40,7 @@ namespace Adn
     {
         this->m_data->m_window.clear();
 
-
+        this->m_data_game->m_game.getActiveGame()->draw();
 
         this->m_data->m_window.display();
     }

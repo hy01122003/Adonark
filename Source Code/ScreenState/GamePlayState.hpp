@@ -11,6 +11,8 @@
 #include <SFML/Graphics.hpp>
 #include "GameDataRef.hpp"
 #include "../PathData.hpp"
+#include "../ScreenGame/CrovaniaVillage.hpp"
+#include "../ScreenGame/GamePlay/GamePlayDataRef.hpp"
 
 namespace Adn
 {
@@ -20,6 +22,7 @@ namespace Adn
         GameDataRef             m_data;
 
     private:
+        GamePlayDataRef         m_data_game;
 
     public:
         GamePlayState(GameDataRef data);

@@ -9,7 +9,7 @@
 
 #include <Adonis/Utility/AssetsManager.hpp>
 #include <SFML/Graphics.hpp>
-#include "GamePlay/GamePlayRef.hpp"
+#include "GamePlay/GamePlayDataRef.hpp"
 #include "../PathData.hpp"
 
 namespace Adn
@@ -17,13 +17,17 @@ namespace Adn
     class CrovaniaVillage : public GamePlay
     {
     private:
+        GamePlayDataRef            m_data;
 
+        sf::View                   m_view;
 
     private:
         void loadData();
 
     public:
-        CrovaniaVillage();
+        CrovaniaVillage(GamePlayDataRef data);
+
+        void init();
 
         void update();
 

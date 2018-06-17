@@ -8,7 +8,8 @@
 
 namespace Adn
 {
-    CrovaniaVillage::CrovaniaVillage()
+    CrovaniaVillage::CrovaniaVillage(GamePlayDataRef data) :
+        m_data(data)
     {
 
     }
@@ -17,20 +18,39 @@ namespace Adn
 
     void CrovaniaVillage::loadData()
     {
+        this->m_data->m_assets->loadFileTexture("PlayerSprite", Path_Texture_Entity + "PlayerSprite.png");
+    }
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    void CrovaniaVillage::init()
+    {
+        this->loadData();
+
+        this->m_data->m_player.create(this->m_data->m_assets->getTexture("PlayerSprite"));
+
+        this->m_view.setSize(Screen_Width, Screen_Height);
+
+        this->m_view.setCenter(this->m_data->m_player.getPosition());
+
+        this->m_data->m_target->setView(this->m_view);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void CrovaniaVillage::update()
     {
+        this->m_data->m_player.update();
 
+        this->m_view.setCenter(this->m_data->m_player.getPosition());
+
+        this->m_data->m_target->setView(this->m_view);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void CrovaniaVillage::draw()
     {
-
+        this->m_data->m_player.draw(this->m_data->m_target);
     }
 }

@@ -43,6 +43,9 @@ namespace Adn
                 timeLastFrame -= this->m_time_a_frame;
 
                 this->m_data->m_state.getActiveState()->handleEvent();
+
+                this->m_data->m_state.handleStateChange();
+
                 this->m_data->m_state.getActiveState()->update();
             }
 

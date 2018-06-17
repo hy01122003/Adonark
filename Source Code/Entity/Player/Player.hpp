@@ -26,7 +26,8 @@ namespace Adn
             Up,
             Down,
             Left,
-            Right
+            Right,
+            None
         };
 
     private:
