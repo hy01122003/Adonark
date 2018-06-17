@@ -25,9 +25,9 @@ namespace Adn
 
     public:
 
-        virtual void draw(sf::RenderTarget& target)
+        virtual void draw(sf::RenderTarget* target)
         {
-            target.draw(this->m_sprite);
+            target->draw(this->m_sprite);
         }
 
         void move(float x, float y);

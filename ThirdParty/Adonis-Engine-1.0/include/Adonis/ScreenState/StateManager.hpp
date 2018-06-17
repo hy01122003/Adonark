@@ -29,6 +29,8 @@ namespace Ado
 
         void handleStateChange();
 
+        void removeAllState();
+
         BaseStateRef& getActiveState();
     };
 }

@@ -29,10 +29,9 @@ namespace Adn
     {
         sf::Time timeLastFrame = sf::Time::Zero;
         sf::Clock timer;
-
+       
         while (this->m_data->m_window.isOpen())
         {
-
             this->m_data->m_state.handleStateChange();
 
             this->m_data->m_state.getActiveState()->handleEvent();

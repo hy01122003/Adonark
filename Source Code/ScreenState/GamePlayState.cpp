@@ -17,14 +17,13 @@ namespace Adn
 
     void GamePlayState::init()
     {
-        this->m_game_play = new CrovaniaVillage(&this->m_data->m_window, this->m_data->m_assets);
+
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void GamePlayState::update()
     {
-        this->m_game_play->update();
 
     }
 
@@ -34,7 +33,7 @@ namespace Adn
     {
         this->m_data->m_window.clear();
 
-        this->m_game_play->draw();
+
 
         this->m_data->m_window.display();
     }

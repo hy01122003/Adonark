@@ -39,7 +39,7 @@ namespace Ado
         {
             this->m_all_state.pop();
 
-            if (this->m_all_state.empty())
+            if (!this->m_all_state.empty())
                 this->m_all_state.top()->resume();
 
             this->m_checkRemove = false;
@@ -58,6 +58,14 @@ namespace Ado
             this->m_all_state.top()->init();
             this->m_checkAdd = false;
         }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    void StateManager::removeAllState()
+    {
+        while (!this->m_all_state.empty())
+            m_all_state.pop();
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
