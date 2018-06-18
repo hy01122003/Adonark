@@ -21,42 +21,6 @@ namespace Adn
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    void Player::controlMove()
-    {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && this->m_status != Status::Left)
-            this->setState(Status::Left);
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && this->m_status != Status::Right)
-            this->setState(Status::Right);
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && this->m_status != Status::Up)
-            this->setState(Status::Up);
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && this->m_status != Status::Down)
-            this->setState(Status::Down);
-        else this->m_status = Status::None;
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
-        {
-            this->m_sprite.move(-2, 0);
-            this->m_status = Status::Left;
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
-        {
-            this->m_sprite.move(2, 0);
-            this->m_status = Status::Right;
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
-        {
-            this->m_sprite.move(0, -2);
-            this->m_status = Status::Up;
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
-        {
-            this->m_sprite.move(0, 2);
-            this->m_status = Status::Down;
-        }
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     void Player::create(sf::Texture& texture)
     {
         this->m_sprite.setTexture(texture);
@@ -72,8 +36,6 @@ namespace Adn
 
     void Player::update()
     {
-        this->controlMove();
-
         if (this->m_status == Status::None)
             this->m_animation.setCurrentFrame(0);
 

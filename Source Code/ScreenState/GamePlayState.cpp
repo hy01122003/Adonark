@@ -22,6 +22,8 @@ namespace Adn
         this->m_data_game->m_sounds = &this->m_data->m_sounds;
         this->m_data_game->m_target = &this->m_data->m_window;
 
+        this->m_exit_game = false;
+
         this->m_data_game->m_game.addGame(GamePlayRef(new CrovaniaVillage(this->m_data_game)));
     }
 
@@ -32,6 +34,19 @@ namespace Adn
         this->m_data_game->m_game.handleGameChange();
 
         this->m_data_game->m_game.getActiveGame()->update();
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+        {
+            this->m_data_game->m_game.removeAllGame();
+
+            auto view = this->m_data->m_window.getView();
+            view.setCenter(Screen_Width / 2, Screen_Height / 2);
+            this->m_data->m_window.setView(view);
+
+            this->m_data->m_state.removeState();
+
+            this->m_exit_game = true;
+        }
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -40,7 +55,8 @@ namespace Adn
     {
         this->m_data->m_window.clear();
 
-        this->m_data_game->m_game.getActiveGame()->draw();
+        if (!this->m_exit_game)
+            this->m_data_game->m_game.getActiveGame()->draw();
 
         this->m_data->m_window.display();
     }

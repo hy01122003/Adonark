@@ -9,6 +9,7 @@
 
 #include <Adonis/ScreenState.hpp>
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include "GameDataRef.hpp"
 #include "../PathData.hpp"
 #include "../ScreenGame/CrovaniaVillage.hpp"
@@ -23,6 +24,8 @@ namespace Adn
 
     private:
         GamePlayDataRef         m_data_game;
+
+        bool                    m_exit_game;
 
     public:
         GamePlayState(GameDataRef data);

@@ -39,7 +39,6 @@ namespace Adn
     private:
         void setupButton();
 
-
     public:
         SettingState(GameDataRef data);
 

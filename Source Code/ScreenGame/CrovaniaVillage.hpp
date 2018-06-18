@@ -21,8 +21,6 @@ namespace Adn
 
         sf::View                   m_view;
 
-        sf::Sprite                 m_sprite_map;
-
     private:
         void loadData();
 

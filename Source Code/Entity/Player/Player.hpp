@@ -33,11 +33,6 @@ namespace Adn
     private:
         Status                m_status;
 
-
-    private:
-        void controlMove();
-
-
     public:
         Player();
         Player(sf::Texture& texture);

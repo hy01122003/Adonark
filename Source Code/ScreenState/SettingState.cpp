@@ -72,6 +72,7 @@ namespace Adn
 
     void SettingState::init()
     {
+
         this->m_title.setOrigin(this->m_title.getGlobalBounds().width / 2, this->m_title.getGlobalBounds().height / 2);
         this->m_title.setFillColor(sf::Color::Red);
         this->m_title.setPosition(Screen_Width / 2, Screen_Height / 2 - 210);
